@@ -1,0 +1,51 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/dxq/Sfm-master (3)/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_253b6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_253b6.dir/build.make CMakeFiles/cmTC_253b6.dir/build
+make[1]: Entering directory `/home/dxq/Sfm-master (3)/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_253b6.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_253b6.dir/CheckSymbolExists.c.o   -c "/home/dxq/Sfm-master (3)/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c"
+Linking C executable cmTC_253b6
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_253b6.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_253b6.dir/CheckSymbolExists.c.o  -o cmTC_253b6 
+CMakeFiles/cmTC_253b6.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_253b6] Error 1
+make[1]: Leaving directory `/home/dxq/Sfm-master (3)/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_253b6/fast] Error 2
+
+File /home/dxq/Sfm-master (3)/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/dxq/Sfm-master (3)/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7fc92/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7fc92.dir/build.make CMakeFiles/cmTC_7fc92.dir/build
+make[1]: Entering directory `/home/dxq/Sfm-master (3)/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7fc92.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_7fc92.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.8/Modules/CheckFunctionExists.c
+Linking C executable cmTC_7fc92
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7fc92.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_7fc92.dir/CheckFunctionExists.c.o  -o cmTC_7fc92 -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_7fc92] Error 1
+make[1]: Leaving directory `/home/dxq/Sfm-master (3)/build/CMakeFiles/CMakeTmp'
+make: *** [cmTC_7fc92/fast] Error 2
+
+
